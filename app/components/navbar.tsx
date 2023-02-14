@@ -14,7 +14,6 @@ export default function Navbar() {
           <Link href="/contact">Contacto</Link>
         </li>
       </ul>
-      {/* <img src="bg.svg" alt="bg" className="h-12 ml-4" /> */}
     </nav>
   );
 }
