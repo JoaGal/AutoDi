@@ -1,17 +1,15 @@
-import Link from 'next/link';
-
 export default function Navbar() {
   return (
-    <nav className="navbar">
+    <nav className="bg-gray-800 text-white p-4">
       <ul className="flex space-x-4">
         <li>
-          <Link href="/">Inicio</Link>
+          <a href="/">Home</a>
         </li>
         <li>
-          <Link href="/diet">Dieta</Link>
+          <a href="/about">About</a>
         </li>
         <li>
-          <Link href="/contact">Contacto</Link>
+          <a href="/contact">Contact</a>
         </li>
       </ul>
     </nav>
