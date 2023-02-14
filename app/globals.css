@@ -8,8 +8,9 @@
 
 .navbar {
   align-items: center;
-  background-color: rgb(134 239 172);
+  background-color: rgb(132, 204, 22);
   display: flex;
+  color: rgb(250 250 249);
   height: 48px;
   justify-content: center;
   left: 0;
@@ -19,12 +20,11 @@
   z-index: 100;
 }
 
-.navbar::after {
-  background: url('assets/bgNavbar.svg') bottom center;
-  content: '';
-  height: 48px;
-  left: 0;
-  position: absolute;
-  top: 100%;
+.wave {
+  background-image: url(./assets/wave.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -10px;
+  height: 25vh;
   width: 100%;
 }

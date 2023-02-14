@@ -6,7 +6,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es">
       <title>AutoDi</title>
       <head />
-      <body className='pt-24'>
+      <body>
         <Navbar />
         {children}
       </body>
