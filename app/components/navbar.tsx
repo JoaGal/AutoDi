@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <nav className="bg-green-300 text-black p-4 fixed flex items-center justify-center h-12 top-0 left-0 w-full z-100 bg_bottom">
+    <nav className="navbar">
       <ul className="flex space-x-4">
         <li>
           <Link href="/">Inicio</Link>

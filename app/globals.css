@@ -6,16 +6,23 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.bg_bottom {
+.navbar {
+  align-items: center;
+  background-color: rgb(134 239 172);
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
   width: 100%;
   z-index: 100;
 }
 
-.test::after {
-  background-size: 150%;
-  background: url("assets/bg.svg") bottom center;
-  content: "";
-  height: 40px;
+.navbar::after {
+  background: url('assets/bgNavbar.svg') bottom center;
+  content: '';
+  height: 48px;
   left: 0;
   position: absolute;
   top: 100%;
