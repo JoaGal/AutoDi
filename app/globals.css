@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg_bottom {
+  width: 100%;
+  z-index: 100;
+}
+
+.test::after {
+  background-size: 150%;
+  background: url("assets/bg.svg") bottom center;
+  content: "";
+  height: 40px;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
