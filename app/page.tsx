@@ -1,5 +1,3 @@
-
-
 export default function Home() {
   return (
     <main>
@@ -7,5 +5,5 @@ export default function Home() {
         <h1 className="text-3xl font-bold underline">Q11 yoakim</h1>
       </div>
     </main>
-  )
+  );
 }
