@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <nav className="bg-gray-800 text-white p-4">
+    <nav className="bg-green-400 text-white p-4">
       <ul className="flex space-x-4">
         <li>
           <a href="/">Home</a>
