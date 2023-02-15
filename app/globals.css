@@ -6,25 +6,22 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.navbar {
-  align-items: center;
-  background-color: rgb(132, 204, 22);
-  display: flex;
-  color: rgb(250 250 249);
-  height: 48px;
-  justify-content: center;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-}
-
 .wave {
   background-image: url(./assets/wave.svg);
   background-repeat: no-repeat;
+  background-position: 100% 100%; 
+  background-size: cover;
+  height: 22vh;
+  /* background-color: transparent; */
+}
+
+.m1{
   margin-top: -1px;
-  height: 25vh;
-  width: 100%;
+}
+  
+@media screen and (max-width: 768px) {
+  .wave {
+    height: 15vh;
+  }
 }
   

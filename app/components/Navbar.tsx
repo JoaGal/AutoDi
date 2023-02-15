@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <nav className="navbar">
-      <ul className="flex space-x-4">
+    <nav className="flex justify-start items-center bg-lime-500 p-4 ">
+      <ul className="flex space-x-6 text-lg md:text-2xl text-stone-50">
         <li>
           <Link href="/">Inicio</Link>
         </li>
