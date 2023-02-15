@@ -40,8 +40,8 @@ export const StatsCard = () => {
           </div>
         </div>
             <p className="font-semibold md:text-2xl mt-5 md:mt-0 text-xl text-left md:text-center">Atividad</p>
-            <select className='text-lime-500 md:h-10 p-2 rounded-sm bg-stone-50 text-sm md:text-lg outline-none md:mt-0 '>
-                <option>Seleccinar Actividad</option>
+            <select className='text-lime-500 md:h-10 p-2 rounded-sm bg-stone-50 text-sm md:text-lg outline-none md:mt-0'>
+                <option>Seleccionar</option>
                 <option>Poco o ningún ejercicio</option>
                 <option>Ejercicio ligero (1-3 x semana)</option>
                 <option>Ejercicio Moderado (3-5 x semana)</option>
