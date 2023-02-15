@@ -5,7 +5,7 @@ export const ButttonHome = () => {
   return (
     <>
       {show && (
-        <div className="hola z-30 absolute overflow-y-scroll bottom-16 md:bottom-32 md:left-32 left-20  w-48 md:w-96 h-64 md:h-96 p-2 md:p-10 bg-stone-50 shadow-lg rounded-bl-none rounded-2xl drop-shadow-lg animate__animated animate__bounceIn">
+        <div className="scroll fixed overflow-y-scroll bottom-16 md:bottom-32 md:left-32 left-20  w-48 md:w-96 h-64 md:h-96 p-2 md:p-10 bg-stone-50 shadow-lg rounded-bl-none rounded-2xl drop-shadow-lg animate__animated animate__bounceIn">
           <p className="font-bold text-xs md:text-base">
             Aqui descubrirás cuántas calorías debes consumir a diario, si tu peso y composición
             corporal son saludables. Nuestra calculadora nutricional gratis te dirá cuál es tu
@@ -21,7 +21,7 @@ export const ButttonHome = () => {
         </div>
       )}
       <button
-        className="text-1xl md:text-3xl font-bold text-lime-500 font-black cursor-pointer z-30 absolute md:bottom-20 bottom-10 md:left-20 left-10 animate__animated animate__bounceIn"
+        className="text-1xl fixed md:text-3xl text-lime-500 font-black cursor-pointer md:bottom-20 bottom-10 md:left-20 left-10 animate__animated animate__bounceIn"
         onClick={() => setShow(!show)}
       >
         Quienes somos?

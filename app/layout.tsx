@@ -6,7 +6,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es">
       <title>AutoDi</title>
       <head />
-      <body>
+      <body className='bg-[url("./assets/bgHome.jpg")] bg-fixed bg-no-repeat bg-cover backdrop-blur-[5px] backdrop-brightness-50'>
         <Navbar />
         {children}
       </body>
