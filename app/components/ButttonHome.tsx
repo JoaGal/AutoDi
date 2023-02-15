@@ -21,7 +21,7 @@ export const ButttonHome = () => {
         </div>
       )}
       <button
-        className="text-1xl md:text-3xl font-bold text-lime-500 font-black cursor-pointer z-30 absolute md:bottom-20 bottom-10 md:left-20 left-10"
+        className="text-1xl md:text-3xl font-bold text-lime-500 font-black cursor-pointer z-30 absolute md:bottom-20 bottom-10 md:left-20 left-10 animate__animated animate__bounceIn"
         onClick={() => setShow(!show)}
       >
         Quienes somos?
