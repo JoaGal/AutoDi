@@ -12,16 +12,28 @@
   background-position: 100% 100%; 
   background-size: cover;
   height: 22vh;
-  /* background-color: transparent; */
+  position: relative;
+  margin-top: -1px;
+  z-index: 20;
 }
 
 .m1{
   margin-top: -1px;
 }
-  
-@media screen and (max-width: 768px) {
-  .wave {
-    height: 15vh;
-  }
+
+.bg-home{
+  background-image: url(./assets/bgHome.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 120vh;
+  width: 110%;
+  left: -10px;
+  margin-top: -350px;
+  position: fixed;
 }
+
+.hola::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+  
   
