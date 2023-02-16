@@ -5,8 +5,35 @@ import { ComponentsStatsCard } from './ComponentsStatsCard';
 import boys from '../assets/boy.svg';
 import girls from '../assets/girl.svg';
 
+type ClientInfo = {
+  age: number | string;
+  weight: number | string;
+  waist: number | string;
+  height: number | string;
+  hip: number | string;
+  chest: number | string;
+  activity: string;
+};
 export const StatsCard = () => {
   const [boy, setBoy] = useState<boolean>(false);
+  const [clientInfo, setClientInfo] = useState<ClientInfo>({
+    age: '',
+    weight: '',
+    waist: '',
+    height: '',
+    hip: '',
+    chest: '',
+    activity: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setClientInfo({
+      ...clientInfo,
+      [e.target.name]: e.target.value
+    });
+  };
+  console.log(clientInfo)
+
   return (
     <div className="flex justify-center items-center pb-32">
       <div className=" md:p-10 text-center p-5 mt-10 text-stone-50 bg-lime-500 shadow-lg rounded-lg drop-shadow-lg animate__animated animate__bounceInDown">
@@ -29,25 +56,65 @@ export const StatsCard = () => {
         </div>
         <div className="md:flex text-left">
           <div className="md:inline-block md:p-10">
-            <ComponentsStatsCard title="Edad" extent="años" />
-            <ComponentsStatsCard title="Peso" extent="kg" />
-            <ComponentsStatsCard title="Cintura" extent="cm" />
+            <ComponentsStatsCard
+              title="Edad"
+              extent="años"
+              name="age"
+              pathObject={clientInfo.age}
+              handleChange={handleChange}
+            />
+            <ComponentsStatsCard
+              title="Peso"
+              extent="kg"
+              name="weight"
+              pathObject={clientInfo.weight}
+              handleChange={handleChange}
+            />
+            <ComponentsStatsCard
+              title="Cintura"
+              extent="cm"
+              name="waist"
+              pathObject={clientInfo.waist}
+              handleChange={handleChange}
+            />
           </div>
           <div className="inline-block md:p-10 mr-10 ">
-            <ComponentsStatsCard title="Altura" extent="cm" />
-            <ComponentsStatsCard title="Cadera" extent="cm" />
-            {!boy && <ComponentsStatsCard title="Pecho" extent="cm" />}
+            <ComponentsStatsCard
+              title="Altura"
+              extent="cm"
+              name="height"
+              pathObject={clientInfo.height}
+              handleChange={handleChange}
+            />
+            <ComponentsStatsCard
+              title="Cadera"
+              extent="cm"
+              name="hip"
+              pathObject={clientInfo.hip}
+              handleChange={handleChange}
+            />
+            {!boy && (
+              <ComponentsStatsCard
+                title="Pecho"
+                extent="cm"
+                name="chest"
+                pathObject={clientInfo.chest}
+                handleChange={handleChange}
+              />
+            )}
           </div>
         </div>
-            <p className="font-semibold md:text-2xl mt-5 md:mt-0 text-xl text-left md:text-center">Atividad</p>
-            <select className='text-lime-500 md:h-10 p-2 rounded-sm bg-stone-50 text-sm md:text-lg outline-none md:mt-0'>
-                <option>Seleccionar</option>
-                <option>Poco o ningún ejercicio</option>
-                <option>Ejercicio ligero (1-3 x semana)</option>
-                <option>Ejercicio Moderado (3-5 x semana)</option>
-                <option>Ejercicio Fuerte (6 x semana)</option>
-                <option>Ejercicio profesional (2 x dia)</option>
-            </select>
+        <p className="font-semibold md:text-2xl mt-5 md:mt-0 text-xl text-left md:text-center">
+          Atividad
+        </p>
+        <select className="text-lime-500 md:h-10 p-2 rounded-sm bg-stone-50 text-sm md:text-lg outline-none md:mt-0">
+          <option>Seleccionar</option>
+          <option>Poco o ningún ejercicio</option>
+          <option>Ejercicio ligero (1-3 x semana)</option>
+          <option>Ejercicio Moderado (3-5 x semana)</option>
+          <option>Ejercicio Fuerte (6 x semana)</option>
+          <option>Ejercicio profesional (2 x dia)</option>
+        </select>
       </div>
     </div>
   );
