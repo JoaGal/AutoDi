@@ -22,7 +22,7 @@ export const StatsCard = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
     setClientInfo({
       ...clientInfo,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value && parseFloat(e.target.value)
     });
   };
 
