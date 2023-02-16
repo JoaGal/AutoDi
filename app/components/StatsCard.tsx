@@ -1,19 +1,11 @@
 'use client';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { ComponentsStatsCard } from './ComponentsStatsCard';
+import { ComponentsStatsCard } from './InputStatsCard';
 import boys from '../assets/boy.svg';
 import girls from '../assets/girl.svg';
+import { ClientInfo } from '../types/Home';
 
-type ClientInfo = {
-  age: number | string;
-  weight: number | string;
-  waist: number | string;
-  height: number | string;
-  hip: number | string;
-  chest: number | string;
-  activity: string;
-};
 export const StatsCard = () => {
   const [boy, setBoy] = useState<boolean>(false);
   const [clientInfo, setClientInfo] = useState<ClientInfo>({
@@ -42,13 +34,13 @@ export const StatsCard = () => {
         </h2>
         <div className="flex justify-center items-center mt-10">
           <button
-            className="rounded-full bg-stone-50 w-20 h-20 mr-4 hover:bg-amber-100"
+            className="rounded-full bg-stone-50 w-20 h-20 mr-4 hover:bg-lime-100"
             onClick={() => setBoy(true)}
           >
             <Image src={boys} alt="boy" width={65} className="m-auto mt-1" />
           </button>
           <button
-            className="rounded-full bg-stone-50 w-20 h-20 ml-4 p-auto hover:bg-amber-100 "
+            className="rounded-full bg-stone-50 w-20 h-20 ml-4 p-auto hover:bg-lime-100 "
             onClick={() => setBoy(false)}
           >
             <Image src={girls} alt="girl" width={65} className="m-auto mt-1" />
@@ -107,7 +99,7 @@ export const StatsCard = () => {
         <p className="font-semibold md:text-2xl mt-5 md:mt-0 text-xl text-left md:text-center">
           Atividad
         </p>
-        <select className="text-lime-500 md:h-10 p-2 rounded-sm bg-stone-50 text-sm md:text-lg outline-none md:mt-0">
+        <select className="text-lime-500 md:h-10 p-2 rounded-sm bg-stone-50 text-sm md:text-lg outline-none md:mt-0 hover:bg-lime-100">
           <option>Seleccionar</option>
           <option>Poco o ningún ejercicio</option>
           <option>Ejercicio ligero (1-3 x semana)</option>
