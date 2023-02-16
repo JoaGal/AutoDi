@@ -1,11 +1,11 @@
 export interface ClientInfo {
-  age: number | string;
-  weight: number | string;
-  waist: number | string;
-  height: number | string;
-  hip: number | string;
-  chest: number | string;
-  activity: string;
+  age: string;
+  weight:  string;
+  waist:  string;
+  height:  string;
+  hip:  string;
+  chest:  string;
+  activity:  string;
 }
 
 export interface InputHome {
