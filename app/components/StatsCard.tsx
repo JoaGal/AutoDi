@@ -4,14 +4,14 @@ import React, { useState } from 'react';
 import { ComponentsStatsCard } from './InputStatsCard';
 import boys from '../assets/boy.svg';
 import girls from '../assets/girl.svg';
-import { ClientInfo } from '../types/Home';
 import { SelectStatsCard } from './SelectStatsCard';
 import { ResultCard } from './ResultCard';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import { ClientInfo } from '../types/Home';
 
 export const StatsCard = () => {
   const [boy, setBoy] = useState<boolean>(false);
-  const [clientInfo, setClientInfo] = useLocalStorage<ClientInfo | undefined | object>("clientInfo",{
+  const [clientInfo, setClientInfo] = useLocalStorage<ClientInfo>("clientInfo",{
     age: '',
     weight: '',
     waist: '',
