@@ -6,6 +6,7 @@ import boys from '../assets/boy.svg';
 import girls from '../assets/girl.svg';
 import { ClientInfo } from '../types/Home';
 import { SelectStatsCard } from './SelectStatsCard';
+import { ResultCard } from './ResultCard';
 
 export const StatsCard = () => {
   const [boy, setBoy] = useState<boolean>(false);
@@ -18,8 +19,10 @@ export const StatsCard = () => {
     chest: '',
     activity: ''
   });
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
+  ) => {
     setClientInfo({
       ...clientInfo,
       [e.target.name]: e.target.value && parseFloat(e.target.value)
@@ -34,13 +37,13 @@ export const StatsCard = () => {
         </h2>
         <div className="flex justify-center items-center mt-10">
           <button
-            className="rounded-full bg-stone-50 w-20 h-20 mr-4 hover:bg-lime-100"
+            className="rounded-full bg-stone-50 w-20 h-20 mr-4 hover:bg-lime-100 shadow-lg drop-shadow-lg"
             onClick={() => setBoy(true)}
           >
             <Image src={boys} alt="boy" width={65} className="m-auto mt-1" />
           </button>
           <button
-            className="rounded-full bg-stone-50 w-20 h-20 ml-4 p-auto hover:bg-lime-100 "
+            className="rounded-full bg-stone-50 w-20 h-20 ml-4 p-auto hover:bg-lime-100 shadow-lg drop-shadow-lg"
             onClick={() => setBoy(false)}
           >
             <Image src={girls} alt="girl" width={65} className="m-auto mt-1" />
@@ -97,6 +100,7 @@ export const StatsCard = () => {
           </div>
         </div>
         <SelectStatsCard pathObject={clientInfo.activity} handleChange={handleChange} />
+        <ResultCard />
       </div>
     </div>
   );
