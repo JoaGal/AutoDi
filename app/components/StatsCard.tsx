@@ -7,10 +7,11 @@ import girls from '../assets/girl.svg';
 import { ClientInfo } from '../types/Home';
 import { SelectStatsCard } from './SelectStatsCard';
 import { ResultCard } from './ResultCard';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 export const StatsCard = () => {
   const [boy, setBoy] = useState<boolean>(false);
-  const [clientInfo, setClientInfo] = useState<ClientInfo>({
+  const [clientInfo, setClientInfo] = useLocalStorage<ClientInfo | undefined | object>("clientInfo",{
     age: '',
     weight: '',
     waist: '',
@@ -21,10 +22,10 @@ export const StatsCard = () => {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement> 
   ) => {
-    setClientInfo({
-      ...clientInfo,
+    setClientInfo ({
+      ...clientInfo ,
       [e.target.name]: e.target.value && parseFloat(e.target.value)
     });
   };
@@ -55,21 +56,21 @@ export const StatsCard = () => {
               title="Edad"
               extent="años"
               name="age"
-              pathObject={clientInfo.age}
+              pathObject={clientInfo?.age}
               handleChange={handleChange}
             />
             <ComponentsStatsCard
               title="Peso"
               extent="kg"
               name="weight"
-              pathObject={clientInfo.weight}
+              pathObject={clientInfo?.weight}
               handleChange={handleChange}
             />
             <ComponentsStatsCard
               title="Cintura"
               extent="cm"
               name="waist"
-              pathObject={clientInfo.waist}
+              pathObject={clientInfo?.waist}
               handleChange={handleChange}
             />
           </div>
@@ -78,14 +79,14 @@ export const StatsCard = () => {
               title="Altura"
               extent="cm"
               name="height"
-              pathObject={clientInfo.height}
+              pathObject={clientInfo?.height}
               handleChange={handleChange}
             />
             <ComponentsStatsCard
               title="Cadera"
               extent="cm"
               name="hip"
-              pathObject={clientInfo.hip}
+              pathObject={clientInfo?.hip}
               handleChange={handleChange}
             />
             {!boy && (
@@ -93,13 +94,13 @@ export const StatsCard = () => {
                 title="Pecho"
                 extent="cm"
                 name="chest"
-                pathObject={clientInfo.chest}
+                pathObject={clientInfo?.chest}
                 handleChange={handleChange}
               />
             )}
           </div>
         </div>
-        <SelectStatsCard pathObject={clientInfo.activity} handleChange={handleChange} />
+        <SelectStatsCard pathObject={clientInfo?.activity} handleChange={handleChange} />
         <ResultCard />
       </div>
     </div>

@@ -9,14 +9,14 @@ export interface ClientInfo {
 }
 
 export interface InputHome {
-  title: string;
-  extent: string;
-  pathObject: number | string;
-  name: string;
+  title: string | undefined;
+  extent: string | undefined;
+  pathObject: number | string | undefined;
+  name: string | undefined;
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export interface SelectHome {
-  pathObject: number | string;
+  pathObject: number | string | undefined;
   handleChange: React.ChangeEventHandler<HTMLSelectElement>;
 }
