@@ -6,6 +6,9 @@ export interface ClientInfo {
   hip: number | string;
   chest: number | string;
   activity: number | string;
+  kcal: number | string;
+  imc: number | string;
+  fat: number | string;
 }
 
 export interface InputHome {

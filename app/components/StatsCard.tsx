@@ -18,7 +18,10 @@ export const StatsCard = () => {
     height: '',
     hip: '',
     chest: '',
-    activity: ''
+    activity: '',
+    kcal: '',
+    imc: '',
+    fat: '',
   });
 
   const handleChange = (
