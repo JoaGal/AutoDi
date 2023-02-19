@@ -45,6 +45,21 @@ export const StatsCard = () => {
     });
   };
 
+  const Restart = () => {
+    setClientInfo({
+      age: '',
+      weight: '',
+      waist: '',
+      height: '',
+      neck: '',
+      hip: '',
+      activity: '',
+      kcal: '',
+      imc: '',
+      fat: ''
+    });
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -131,9 +146,10 @@ export const StatsCard = () => {
         <SelectStatsCard pathObject={clientInfo?.activity} handleChange={handleChange} />
         <ResultCard
           ResultFinal={ResultFinal}
-          kcal={clientInfo?.kcal.toFixed(0)}
-          imc={clientInfo?.imc.toFixed(2)}
-          fat={clientInfo?.fat.toFixed(2)}
+          Restart={Restart}
+          kcal={clientInfo?.kcal === '' || null ?  '---' : clientInfo?.kcal.toFixed(0)}
+          imc={clientInfo?.imc === '' || null ?  '---' : clientInfo?.imc.toFixed(2)}
+          fat={clientInfo?.fat === '' || null ?  '---' : clientInfo?.fat.toFixed(2)}
         />
       </div>
     </div>

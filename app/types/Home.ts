@@ -13,6 +13,7 @@ export interface ClientInfo {
 
 export interface ResultCards {
   ResultFinal: () => void;
+  Restart: () => void;
   kcal: string | number;
   imc: string | number;
   fat: string | number;
