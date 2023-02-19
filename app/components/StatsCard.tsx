@@ -11,24 +11,45 @@ import { ClientInfo } from '../types/Home';
 
 export const StatsCard = () => {
   const [boy, setBoy] = useState<boolean>(false);
-  const [clientInfo, setClientInfo] = useLocalStorage<ClientInfo>("clientInfo",{
+  const [clientInfo, setClientInfo] = useLocalStorage<ClientInfo>('clientInfo', {
     age: '',
     weight: '',
     waist: '',
     height: '',
+    neck: '',
     hip: '',
-    chest: '',
     activity: '',
     kcal: '',
     imc: '',
-    fat: '',
+    fat: ''
   });
 
+  const ResultFinal = () => {
+    const { age, weight, height, activity, hip, neck, waist } = clientInfo;
+    // Kcal
+    const result = 10 * weight + 6.25 * height - 5 * age + (boy ? +5 : -161);
+    const resultKcal = result * activity;
+    // IMC
+    const resultIMC = weight / (height * height);
+    // % de grasa
+    const resultFat = boy
+      ? 495 / (1.0324 - 0.19077 * Math.log10(waist - neck) + 0.15456 * Math.log10(height)) - 450
+      : 495 / (1.29579 - 0.35004 * Math.log10(waist + hip - neck) + 0.221 * Math.log10(height)) -
+        450;
+    // setLocalStorage
+    setClientInfo({
+      ...clientInfo,
+      kcal: resultKcal,
+      imc: resultIMC,
+      fat: resultFat
+    });
+  };
+
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement> 
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
   ) => {
-    setClientInfo ({
-      ...clientInfo ,
+    setClientInfo({
+      ...clientInfo,
       [e.target.name]: e.target.value && parseFloat(e.target.value)
     });
   };
@@ -41,20 +62,24 @@ export const StatsCard = () => {
         </h2>
         <div className="flex justify-center items-center mt-10">
           <button
-            className="rounded-full bg-stone-50 w-20 h-20 mr-4 hover:bg-lime-100 shadow-lg drop-shadow-lg"
+            className={`rounded-full ${
+              boy ? 'bg-lime-100' : 'bg-stone-50'
+            } w-20 h-20 mr-4 hover:bg-lime-100 shadow-lg drop-shadow-lg`}
             onClick={() => setBoy(true)}
           >
             <Image src={boys} alt="boy" width={65} className="m-auto mt-1" />
           </button>
           <button
-            className="rounded-full bg-stone-50 w-20 h-20 ml-4 p-auto hover:bg-lime-100 shadow-lg drop-shadow-lg"
+            className={`rounded-full ${
+              !boy ? 'bg-lime-100' : 'bg-stone-50'
+            } w-20 h-20 ml-4 p-auto hover:bg-lime-100 shadow-lg drop-shadow-lg `}
             onClick={() => setBoy(false)}
           >
             <Image src={girls} alt="girl" width={65} className="m-auto mt-1" />
           </button>
         </div>
         <div className="md:flex text-left">
-          <div className="md:inline-block md:p-10">
+          <div className="md:inline-block md:p-10 md:pt-5">
             <ComponentsStatsCard
               title="Edad"
               extent="años"
@@ -77,7 +102,7 @@ export const StatsCard = () => {
               handleChange={handleChange}
             />
           </div>
-          <div className="inline-block md:p-10 mr-10 ">
+          <div className="inline-block md:p-10 md:pt-5 ">
             <ComponentsStatsCard
               title="Altura"
               extent="cm"
@@ -86,25 +111,30 @@ export const StatsCard = () => {
               handleChange={handleChange}
             />
             <ComponentsStatsCard
-              title="Cadera"
+              title="Cuello"
               extent="cm"
-              name="hip"
-              pathObject={clientInfo?.hip}
+              name="neck"
+              pathObject={clientInfo?.neck}
               handleChange={handleChange}
             />
             {!boy && (
               <ComponentsStatsCard
-                title="Pecho"
+                title="Cadera"
                 extent="cm"
-                name="chest"
-                pathObject={clientInfo?.chest}
+                name="hip"
+                pathObject={clientInfo?.hip}
                 handleChange={handleChange}
               />
             )}
           </div>
         </div>
         <SelectStatsCard pathObject={clientInfo?.activity} handleChange={handleChange} />
-        <ResultCard />
+        <ResultCard
+          ResultFinal={ResultFinal}
+          kcal={clientInfo?.kcal.toFixed(0)}
+          imc={clientInfo?.imc.toFixed(2)}
+          fat={clientInfo?.fat.toFixed(2)}
+        />
       </div>
     </div>
   );
