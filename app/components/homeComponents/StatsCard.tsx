@@ -2,15 +2,16 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { ComponentsStatsCard } from './InputStatsCard';
-import boys from '../assets/boy.svg';
-import girls from '../assets/girl.svg';
+import boys from '../../assets/boy.svg';
+import girls from '../../assets/girl.svg';
 import { SelectStatsCard } from './SelectStatsCard';
 import { ResultCard } from './ResultCard';
-import { useLocalStorage } from '../hooks/useLocalStorage';
-import { ClientInfo } from '../types/Home';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { ClientInfo } from '../../types/Home';
+import Link from 'next/link';
 
 export const StatsCard = () => {
-  const [boy, setBoy] = useState<boolean>(false);
+  const [boy, setBoy] = useState<boolean>(true);
   const [clientInfo, setClientInfo] = useLocalStorage<ClientInfo>('clientInfo', {
     age: '',
     weight: '',
@@ -23,6 +24,7 @@ export const StatsCard = () => {
     imc: '',
     fat: ''
   });
+  localStorage.getItem('clientInfo');
 
   const ResultFinal = () => {
     const { age, weight, height, activity, hip, neck, waist } = clientInfo;
@@ -70,7 +72,7 @@ export const StatsCard = () => {
   };
 
   return (
-    <div className="flex justify-center items-center pb-32">
+    <div className="flex justify-center items-center">
       <div className=" md:p-10 text-center p-5 mt-10 text-stone-50 bg-lime-500 shadow-lg rounded-lg drop-shadow-lg animate__animated animate__bounceInDown">
         <h2 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-0">
           Ingresa tus datos
@@ -146,11 +148,14 @@ export const StatsCard = () => {
         <SelectStatsCard pathObject={clientInfo?.activity} handleChange={handleChange} />
         <ResultCard
           ResultFinal={ResultFinal}
-          Restart={Restart}
-          kcal={clientInfo?.kcal === '' || null ?  '---' : clientInfo?.kcal.toFixed(0)}
-          imc={clientInfo?.imc === '' || null ?  '---' : clientInfo?.imc.toFixed(2)}
-          fat={clientInfo?.fat === '' || null ?  '---' : clientInfo?.fat.toFixed(2)}
+          Restart={Restart} 
+          kcal={Number(clientInfo.kcal).toFixed(0)}
+          imc={Number(clientInfo.imc).toFixed(2)}
+          fat={Number(clientInfo.fat).toFixed(2)}
         />
+        <Link href="/diet" className="bg-stone-50 hover:bg-lime-400 text-lime-500 font-bold block p-4 mt-5 md:text-xl rounded-lg shadow-lg drop-shadow-lg">
+        Siguiente 
+      </Link>
       </div>
     </div>
   );

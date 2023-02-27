@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputHome } from '../types/Home';
+import { InputHome } from '../../types/Home';
 
 export const ComponentsStatsCard = ({
   title,

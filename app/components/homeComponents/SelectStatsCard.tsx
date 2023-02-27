@@ -1,4 +1,4 @@
-import { SelectHome } from '../types/Home';
+import { SelectHome } from '../../types/Home';
 
 export const SelectStatsCard = ({ pathObject, handleChange }: SelectHome) => {
   return (
