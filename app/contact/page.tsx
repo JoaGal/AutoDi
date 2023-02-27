@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Im from "../assets/Joaquin.jpg";
+import Im from "../assets/Joaquin.jpeg";
 import linkedin from "../assets/linkedin.svg";
 import github from "../assets/github.svg";
 import briefcase from "../assets/briefcase.svg";
