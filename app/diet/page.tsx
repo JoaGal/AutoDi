@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { StatsCardDiet } from '../components/dietComponents/StatsCardDiet';
 import { ResultFinal } from '../types/Diet';
+import { ClientInfo } from '../types/Home';
 
 // type LunchDinner = {
 //   meet: number;
@@ -26,13 +27,13 @@ export default function diet() {
   // });
 
   const item: string | null = localStorage.getItem('clientInfo');
-  const clientInfo = JSON.parse(item!);
+  const clientInfo: ClientInfo= JSON.parse(item!);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
   ) => {
     //Stats
-    const addkcal: number = clientInfo.kcal + Number(e.target.value);
+    const addkcal: number = Number(clientInfo?.kcal) + Number(e.target.value);
     const finalCarb: number = (addkcal * finalObject?.divisorCarb) / 4;
     const finalprot: number = (addkcal * finalObject?.divisorProt) / 4;
     const finalFat: number = (addkcal * finalObject?.divisorFat) / 9;
