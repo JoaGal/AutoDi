@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Im from "../assets/Joaquin.jpeg";
+import Yo from "../assets/Yo2.jpeg";
 import linkedin from "../assets/linkedin.svg";
 import github from "../assets/github.svg";
 import briefcase from "../assets/briefcase.svg";
@@ -13,7 +13,7 @@ export default function contact() {
         <div className=" md:p-10 text-center p-5 mt-10 text-stone-50 bg-lime-500 shadow-lg rounded-lg drop-shadow-lg animate__animated animate__bounceInDown">
           <h1 className="md:text-4xl text-3xl text-lime-500 rounded-lg bg-stone-50 font-bold shadow-lg drop-shadow-lg p-2">Joaquin Galdeano</h1>
           <div className="p-2 bg-stone-50 mt-5 rounded-lg shadow-lg drop-shadow-lg">
-          <Image src={Im} alt="Joaquin" className="w-auto md:w-96" />
+          <Image src={Yo} alt="Joaquin" className="w-auto md:w-96" />
           </div>
           <div className="flex justify-between p-2">
             <Link href="https://www.linkedin.com/in/joaquin-galdeano-174281209/" className="bg-stone-50 mt-5 rounded-lg shadow-lg drop-shadow-lg">
