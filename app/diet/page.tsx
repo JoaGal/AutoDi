@@ -26,8 +26,7 @@ export default function diet() {
   //   potato: 0
   // });
 
-  const item: string | null = localStorage.getItem('clientInfo');
-  const clientInfo: ClientInfo= JSON.parse(item!);
+  const clientInfo: ClientInfo= JSON.parse(window.localStorage.getItem('clientInfo')!);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
