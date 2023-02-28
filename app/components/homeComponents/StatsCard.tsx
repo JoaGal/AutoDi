@@ -24,7 +24,7 @@ export const StatsCard = () => {
     imc: '',
     fat: ''
   });
-  localStorage.getItem('clientInfo');
+  window.localStorage.getItem('clientInfo');
 
   const ResultFinal = () => {
     const { age, weight, height, activity, hip, neck, waist } = clientInfo;
